@@ -34,6 +34,19 @@ const listingSchema =new Schema({
     owner:{
         type:Schema.Types.ObjectId,
         ref:"User"
+    },
+    phone: {
+        type: String,
+        required: true
+    },
+    availableFor: { // New field to store availability in days
+        type: Number, 
+        required: true 
+    }, 
+    
+    createdAt: { 
+        type: Date, 
+        default: Date.now 
     }
 });
 

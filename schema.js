@@ -8,9 +8,12 @@ module.exports.listingSchema= Joi.object({
         description : Joi.string().required(), // The 'description' field must be a string and is also required.
         location : Joi.string().required(),  // The 'location' field must be a string and is required.
         country  : Joi.string().required(), // The 'country' field must be a string and is required.
+        availableFor: Joi.number().required().min(1), // The availableFor field must be a number, required, with a minimum of 1 day.
+        phone: Joi.string().required().pattern(/^[0-9]{10}$/), // Validates 10-digit phone number
         price :Joi.number().required().min(0), // The 'price' field must be a number. It is required and must be at least 0 (minimum value is 0).
         image :Joi.string().allow("",null)// The 'image' field must be a string, but it is optional. 
                                             // It can be an empty string or null (meaning the image field can be left blank or unset).
+    
     }).required() 
 });
 

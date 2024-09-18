@@ -30,27 +30,42 @@
         <input  type="file" class="form-control"  name="listing[image]">
         </div>
 
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="text" class="form-control" id="phone" name="listing[phone]" value="<%= listing.phone %>"  pattern="[0-9]{10}" required>
+            <div class="invalid-feedback">
+                Please enter a valid 10-digit phone number.
+            </div>
+        </div>
+
         <div class="row">
              <div class="mb-3 col-md-4">
                 <label for="price" class="form-label">Price</label>
                  <input required type="number" name="listing[price]" class="form-control"  value="<%=listing.price  %>">
              </div>
              <div class="mb-3 col-md-8">
-                <label for="country" class="form-label">Country</label>
-                <input required type="text" name="listing[country]" class="form-control"  value="<%=listing.country  %>">
-                <div class="invalid-feedback">
-                    Please provide a valid Country.
-                  </div>
-            </div>
-        </div>
+                <label for="availableFor" class="form-label">Available for (Days)</label>
+                <input type="number" name="listing[availableFor]" required class="form-control" value="<%= listing.availableFor %>">
+              </div>
 
-        <div class="mb-3">
+        </div>
+        
+    <div class="row">
+        <div class="mb-3 col-md-4">
             <label for="location" class="form-label">Location</label>
              <input required type="text" name="listing[location]" class="form-control"  value="<%=listing.location  %>">
              <div class="invalid-feedback">
                 Please provide a valid Location.
               </div>
-            </div>
+        </div>
+        <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input required type="text" name="listing[country]" class="form-control"  value="<%=listing.country  %>">
+            <div class="invalid-feedback">
+                Please provide a valid Country.
+              </div>
+        </div>
+    </div>
 
         <button class="btn btn-dark edit-btn mt-3 mb-3">Edit</button>
     </form>

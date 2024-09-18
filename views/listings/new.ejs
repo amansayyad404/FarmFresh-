@@ -30,29 +30,49 @@
        
       </div>
 
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="phone" name="listing[phone]"  pattern="[0-9]{10}" required>
+        <div class="invalid-feedback">
+          Please enter a valid 10-digit phone number.
+      </div>
+    </div>
 
-       <div class="row">
+     <div class="row">
       <div class="mb-3 col-md-4">
         <label for="price" class="form-label">Price</label>
         <input type="number" name="listing[price]" placeholder="₹ 1200" required class="form-control">
+        
       </div>
         
       <div class="mb-3 col-md-8">
+        <label for="availableFor" class="form-label">Available for (Days)</label>
+        <input type="number" name="listing[availableFor]" required class="form-control">
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="mb-3 col-md-4">
         <label for="country" class="form-label">Country</label>
         <input type="text" name="listing[country]" placeholder="India" required class="form-control">
         <div class="invalid-feedback">
           Please provide a valid Country.
         </div>
       </div>
-    </div>
-      <div class="mb-3">
+
+      <div class="mb-3 col-md-8">
         <label for="location" class="form-label">Location</label>
         <input type="text" name="listing[location]" placeholder="Pune" required class="form-control">
         <div class="invalid-feedback">
           Please provide a valid Location.
         </div>
       </div>
-        
+
+    </div>
+
+
+      
         <button class="btn btn-dark add-btn mt-3 mb-3">Add</button>
       
     </form>
