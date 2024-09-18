@@ -13,17 +13,21 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           
-          <a class="nav-link" href="/listings">Explore</a>
+          <a class="nav-link" href="/listings"><b>Explore</b></a>
           
+          <a class="nav-link" href="/listings/new"><i class="fa-regular fa-square-plus"></i></a>
+        </div>
+        <div class="navbar-nav ms-auto ">
+          <img src="/images/farmfresh.png" alt=""  style="width: 150px ; height: 80px">
         </div>
         <div class="navbar-nav ms-auto">
-          <a class="nav-link" href="/listings/new">Add new Listing</a>
           <% if(!currentUser) {%>
-            <a class="nav-link" href="/login"><b>Log in</b></a>
-            <a class="nav-link" href="/signup"><b>Sign up</b></a>
+            <a class="nav-link" href="/login"><u><b>Log in </b><i class="fa-solid fa-arrow-right-to-bracket"></i></u></a>
+            <div class="line"></div>
+            <a class="nav-link" href="/signup"><u><b>Sign up </b><i class="fa-solid fa-user-plus"></i></u></a>
           <% } %>
           <% if(currentUser){ %>
-          <a class="nav-link" href="/logout"><b>Log out</b></a>
+          <a class="nav-link" href="/logout"><b>Log out </b><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
             <% } %>
         </div>
       </div>
