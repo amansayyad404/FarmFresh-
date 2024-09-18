@@ -11,7 +11,7 @@ body{
 .navbar{
     height: 5rem;
     background:white;
-    .fa-compass{
+    .fa-truck-monster{
         color: #fe424d;
         font-size: 2rem;
     }
@@ -25,14 +25,14 @@ body{
 /* footer  */
 .f-info{
     display: flex;
-    height: 8rem;
+    height: 5rem;
     background-color: #ebebeb;
     flex-wrap: wrap;
     justify-content: center;
     align-items:space-evenly;
     text-align: center;
 }
-.f-info-links,
+
 .f-info-socials,.brand{
     width: 100%;
     display: flex;
@@ -44,14 +44,7 @@ body{
     margin-right: 1rem;
     font-size: 1.3rem;
 }
-.f-info-links a{
-    text-decoration: none;
-    color: #222222;
-}
-.f-info-links a:hover{
-    text-decoration: underline;
-    color: #222222;
-}
+
 
 /* cards  */
 .listing-card{
@@ -112,3 +105,45 @@ body{
 
 }
 
+.sigup-heading{
+    color: #fe424d !important;
+}
+
+.login-heading{
+    color: #fe424d !important;
+}
+.heading{
+    color: #fe424d !important;
+
+}
+.blue-heading{
+    color: #1877F2 !important ;
+}
+
+.heading-img{
+    height: 100px !important;
+    
+}
+.avalablefor{
+    opacity: 0.6;
+}
+
+.signup-div{
+    
+    padding: 26px !important;
+    
+    
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.login-div{
+    
+    padding: 26px !important;
+    
+    
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.btn-signup{
+    border: none !important;
+    color: #ebebeb !important;
+}

@@ -1,7 +1,10 @@
 <% layout("/layouts/boilerplate") %>
 <div class="row mt-3">
-    <h1 class="col-6 offset-3">SignUp on FarmFresh</h1>
-    <div class="col-6 offset-3">
+ 
+    <h1 class="col-6 offset-3 sigup-heading" >SignUp on FarmFresh <img class="heading-img" src="images/farmer.jpg" alt=""></h1>
+  
+
+  <div class="col-6 offset-3 signup-div">
         <form action="/signup" method="POST" class="needs-validation" novalidate>
     <!-- username  -->
             <div class="mb-3">
@@ -26,7 +29,7 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" name="password" id="password" required class="form-control">
               </div>
-              <button class="btn btn-success">SignUp</button>
+              <button class="btn btn-primary">SignUp</button>
         </form>
     </div>
 </div>
