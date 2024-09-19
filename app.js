@@ -11,6 +11,7 @@ const methodOverride =require("method-override")//HTML forms only support GET an
 const ejsMate =require("ejs-mate"); //used for common boilerplate code like footer header
 const ExpressError=require("./utils/ExpressError.js");
 const session=require("express-session"); //manage user sessions
+const MongoStore =require("connect-mongo");
 const flash=require("connect-flash");//toast msg
 const passport =require("passport");
 const LocalStrategy =require("passport-local");
@@ -19,9 +20,12 @@ const User =require("./models/user.js");
 const listingsRouter = require("./routes/listing.js"); //routes
 const reviewsRouter =require("./routes/review.js");    //routes
 const userRouter =require("./routes/user.js");    //routes
+const { error } = require('console');
 
 
-const MONGO_URL ="mongodb://127.0.0.1:27017/FarmFresh" //connecting db------------------//
+//const MONGO_URL ="mongodb://127.0.0.1:27017/FarmFresh" //connecting db------------------//
+const dbURL =process.env.ATLASDB_URL;
+
 main().then(()=>{
     console.log("connected to DB")
 
@@ -30,7 +34,7 @@ main().then(()=>{
 })
 
 async function main() {
-    await mongoose.connect( MONGO_URL);
+    await mongoose.connect( dbURL);
 }                                                       //-------------------//
 
 
@@ -44,10 +48,23 @@ app.engine("ejs",ejsMate);
 app.use(express.static(path.join(__dirname,"/public"))) //to use static files from public folder like css,js
 //-------------------//
 
+//store session data in MongoDB
+const store =MongoStore.create({
+    mongoUrl:dbURL,                   // URL to the MongoDB database where session data will be stored
+    crypto:{                         // Crypto is used to encrypt/decrypt session data stored in MongoDB
+        secret:process.env.SECRET,
+    },
+    touchAfter: 2* 24*3600,         // Limits how often the session will be updated in the database 
+})
+store.on("error",()=>{
+    console.log("error in MONGO SESSION STORE",error);
+})
+
 const sessionOptions ={
-    secret:"mysupersecretcode", // A secret key used to sign the session ID cookie for security.
-    resave:false, // Prevents the session from being saved back to the session store if it hasn't been modified during the request.
-    saveUninitialized:true , // Saves a session that is new but not modified (used to track user even without data).
+    store,
+    secret:process.env.SECRET,      // A secret key used to sign the session ID cookie for security.
+    resave:false,                    // Prevents the session from being saved back to the session store if it hasn't been modified during the request.
+    saveUninitialized:true ,        // Saves a session that is new but not modified (used to track user even without data).
     cookie:{
         expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
         maxAge :7 * 24 * 60 * 60 * 1000,

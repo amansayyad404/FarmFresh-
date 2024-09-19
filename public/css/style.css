@@ -152,3 +152,10 @@ body{
     width:1px !important ;
     background-color: #222222 !important;
 }
+
+.shadobox{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.h-shadobox:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
