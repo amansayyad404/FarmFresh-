@@ -27,7 +27,8 @@
             <a class="nav-link" href="/signup"><u><b>Sign up </b><i class="fa-solid fa-user-plus"></i></u></a>
           <% } %>
           <% if(currentUser){ %>
-          <a class="nav-link" href="/logout"><b>Log out </b><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            <a class="nav-link" href="#"><b>Welcome, <%= currentUser.username %>!</b></a>
+          <a class="nav-link" href="/logout"><u><b>Log out </b><i class="fa-solid fa-arrow-right-from-bracket"></i></u></a>
             <% } %>
         </div>
       </div>

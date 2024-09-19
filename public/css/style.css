@@ -159,3 +159,8 @@ body{
 .h-shadobox:hover{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+.home-img{
+    height: 500px !important;
+    margin-left: 400px !important;
+    margin-top: 60px !important;
+}

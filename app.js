@@ -72,9 +72,6 @@ const sessionOptions ={
     },
 };
 
-// app.get("/",(req,res)=>{
-//     res.send("iam root")
-// })
 
 
 
@@ -96,11 +93,14 @@ app.use((req,res,next)=>{
 })
 
 
+app.get("/",(req,res)=>{
+    res.render("listings/homepage")
+})
 
 
+app.use("/",userRouter);//routes
 app.use("/listings",listingsRouter); //routes
 app.use("/listings/:id/reviews",reviewsRouter);//routes
-app.use("/",userRouter);//routes
 
 
 
