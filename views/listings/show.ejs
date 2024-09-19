@@ -74,12 +74,12 @@
         <% for(review of listing.reviews) {%>
             <div class="card col-5 ms-3 mb-3 shadobox">
                 <div class="card-body">
-                    <h5 class="card-title blue-heading grey-color"><i><b>@<%= review.author.username %></b></i></h5>
+                    <h5 class="card-title blue-heading "><i><b>@<%= review.author.username %></b></i></h5>
                     <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
                     <p class="card-text"><%= review.comment %></p>
                     
                 </div>
-                <% if(currentUser) {%>
+                <% if(currentUser && currentUser._id.equals(review.author._id)) {%>
                 <form class="mb-3" method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
                     <button class="btn btn-sm btn-dark">Delete</button>
                 </form>
